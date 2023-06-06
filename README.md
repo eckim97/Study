@@ -1,3 +1,2 @@
-# MVC
-Spring MVC
-.....................
+# Description
+MVC
