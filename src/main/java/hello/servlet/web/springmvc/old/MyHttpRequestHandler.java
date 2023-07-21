@@ -12,6 +12,6 @@ import java.io.IOException;
 public class MyHttpRequestHandler implements HttpRequestHandler {
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("MyHttpRequestHandler.handleRequest");
+        System.out.print("MyHttpRequestHandler.handleRequest");
     }
 }
