@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+=======
+>>>>>>> 9cbe6106f9649b5032a5949eecae209449a33e2b
 HELP.md
 .gradle
 build/
@@ -6,6 +17,10 @@ build/
 !**/src/test/**/build/
 
 ### STS ###
+<<<<<<< HEAD
+=======
+>>>>>>> 73cfa028c00e9020fbd1a32cd77531797343fb57
+>>>>>>> 9cbe6106f9649b5032a5949eecae209449a33e2b
 .apt_generated
 .classpath
 .factorypath
@@ -17,6 +32,11 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9cbe6106f9649b5032a5949eecae209449a33e2b
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -26,6 +46,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
+<<<<<<< HEAD
+=======
+>>>>>>> 73cfa028c00e9020fbd1a32cd77531797343fb57
+>>>>>>> 9cbe6106f9649b5032a5949eecae209449a33e2b
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -35,3 +59,12 @@ out/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+### Mac OS ###
+.DS_Store
+=======
+>>>>>>> 73cfa028c00e9020fbd1a32cd77531797343fb57
+>>>>>>> 9cbe6106f9649b5032a5949eecae209449a33e2b
