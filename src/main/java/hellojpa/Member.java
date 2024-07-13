@@ -22,6 +22,11 @@ public class Member {
         return team;
     }
 
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
+
     public void setTeam(Team team) {
         this.team = team;
     }
@@ -40,5 +45,14 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", team=" + team +
+                '}';
     }
 }
