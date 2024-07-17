@@ -15,4 +15,5 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
+
 }

@@ -29,7 +29,6 @@ public class JpaMain {
                     .setParameter("username", "member1")
                     .getSingleResult();
             System.out.println("singleResult = " + result.getUsername());
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
