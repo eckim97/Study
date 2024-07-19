@@ -34,8 +34,7 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-//            String query = "select m from Member m left join m.team t on t.name = 'teamA'"; //1. 조인 대상 필터링
-            String query = "select m from Member m left join Team t on m.username = t.name"; //2. 연관관계 없는 엔티티 외부 조인
+            String query = "select (select avg(m1.age) from Member m1)as Averge from Member m left join Team t on m.username = t.name"; //2. 연관관계 없는 엔티티 외부 조인
             List<Member> result = em.createQuery(query, Member.class)
                     .getResultList();
 
