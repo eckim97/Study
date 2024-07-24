@@ -9,7 +9,7 @@ public class Calculator {
             new AdditionOperator(), new SubtractionOperator()
             , new MultiplicationOperator(), new DivisionOperator()
     );
-    public static int calculate(int operand1, String operator, int operand2) {
+    public static int calculate(PositiveNumber operand1, String operator, PositiveNumber operand2) {
         return arithmeticOperators.stream()
                 .filter(arithmeticOperators -> arithmeticOperators.supports(operator))
                 .map(arithmeticOperators -> arithmeticOperators.calculate(operand1, operand2))
