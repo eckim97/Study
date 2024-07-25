@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Calculator;
 
 public class Course {
     private final String subject;

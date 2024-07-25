@@ -1,6 +1,4 @@
-package org.example;
-
-import org.example.calculate.*;
+package org.example.calculate;
 
 import java.util.List;
 
