@@ -1,4 +1,4 @@
-package org.example.Calculator;
+package org.example.GradeCalculator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package org.example.Calculator;
+package org.example.GradeCalculator;
 
 import java.util.List;
 
