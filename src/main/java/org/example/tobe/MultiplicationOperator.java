@@ -1,6 +1,6 @@
-package org.example.domain;
+package org.example.tobe;
 
-import org.example.tobe.NewArithmeticOperator;
+import org.example.domain.PositiveNumber;
 
 public class MultiplicationOperator implements NewArithmeticOperator {
     @Override
