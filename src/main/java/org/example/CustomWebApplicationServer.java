@@ -1,9 +1,9 @@
 package org.example;
 
+import org.example.domain.Calculator;
+import org.example.domain.PositiveNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.sound.sampled.Line;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -36,10 +36,17 @@ public class CustomWebApplicationServer {
                     BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
                     DataOutputStream dos = new DataOutputStream(out);
 
-                    String line;
+                    HttpRequest httpRequest = new HttpRequest(br);
 
-                    while ((line = br.readLine()) != "") {
-                        System.out.println(line);
+                    if (httpRequest.isGetRequest() && httpRequest.matchPath("/calculate")) {
+                        QueryStrings queryStrings = httpRequest.getQueryString();
+
+                        int operand1 = Integer.parseInt(queryStrings.getValue("operand1"));
+                        String operator = queryStrings.getValue("operator");
+                        int operand2 = Integer.parseInt(queryStrings.getValue("operand2"));
+
+                        int result = Calculator.calculate(new PositiveNumber(operand1), operator, new PositiveNumber(operand2));
+
                     }
                 }
             }
