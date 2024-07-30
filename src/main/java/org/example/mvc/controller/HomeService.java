@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.mvc.controller;
 
 import org.example.annotation.Service;
 
