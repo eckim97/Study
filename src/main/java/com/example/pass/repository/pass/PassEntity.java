@@ -1,6 +1,6 @@
-package com.fastcampus.pass.repository.pass;
+package com.example.pass.repository.pass;
 
-import com.fastcampus.pass.repository.BaseEntity;
+import com.example.pass.repository.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,6 +20,7 @@ public class PassEntity extends BaseEntity {
     private Integer packageSeq;
     private String userId;
 
+    @Enumerated(EnumType.STRING)
     private PassStatus status;
     private Integer remainingCount;
 
