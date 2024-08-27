@@ -1,4 +1,4 @@
-package com.fastcampus.pass.repository.packaze;
+package com.example.pass.repository.packaze;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

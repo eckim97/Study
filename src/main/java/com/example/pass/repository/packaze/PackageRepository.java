@@ -1,4 +1,4 @@
-package com.fastcampus.pass.repository.packaze;
+package com.example.pass.repository.packaze;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

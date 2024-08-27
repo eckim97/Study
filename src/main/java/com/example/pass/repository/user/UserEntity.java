@@ -1,6 +1,6 @@
-package com.fastcampus.pass.repository.user;
+package com.example.pass.repository.user;
 
-import com.fastcampus.pass.repository.BaseEntity;
+import com.example.pass.repository.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

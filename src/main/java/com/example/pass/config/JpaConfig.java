@@ -1,4 +1,4 @@
-package com.fastcampus.pass.config;
+package com.example.pass.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

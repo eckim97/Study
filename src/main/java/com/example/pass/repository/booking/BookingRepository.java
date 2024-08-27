@@ -1,4 +1,4 @@
-package com.fastcampus.pass.repository.booking;
+package com.example.pass.repository.booking;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
