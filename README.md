@@ -1,4 +1,6 @@
-# GitFlow
+# Release Branch 생성 후 추가 작업이 필요해질 경우 
+
+## GitFlow
 - dev 브랜치 생성
 
 - login 기능 구현
