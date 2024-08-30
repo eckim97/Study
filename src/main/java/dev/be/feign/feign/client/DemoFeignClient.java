@@ -21,4 +21,7 @@ public interface DemoFeignClient {
     @PostMapping("/post")
     ResponseEntity<BaseResponseInfo> callPost(@RequestHeader("CustomHeaderName") String customHeader,
                                               @RequestBody BaseRequestsInfo baseRequestsInfo);
+
+    @GetMapping("/error")
+    ResponseEntity<BaseResponseInfo> callErrorDecoder();
 }
