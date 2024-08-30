@@ -44,6 +44,9 @@ dependencies {
     // Feign
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
+    // for `StringUtils`
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
 }
 
 tasks.named('test') {
