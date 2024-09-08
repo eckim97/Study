@@ -125,7 +125,7 @@ public class PostServiceTest {
     }
 
     @Test
-    void 포스트삭시_포스트가_존재하지않는_경우() {
+    void 포스트삭제시_포스트가_존재하지않는_경우() {
         String userName = "userName";
         Integer postId = 1;
 
