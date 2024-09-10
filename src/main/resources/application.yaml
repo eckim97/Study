@@ -21,3 +21,5 @@ jwt:
   secret-key: sns-service-application-2024.secret_key
   # 30 days
   token.expired-time-ms: 2592000000
+
+spring.redis.url: ${REDIS_URL}
