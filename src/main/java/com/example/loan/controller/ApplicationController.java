@@ -1,10 +1,12 @@
 package com.example.loan.controller;
 
+import com.example.loan.dto.ApplicationDTO;
 import com.example.loan.dto.ResponseDTO;
 import com.example.loan.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.loan.dto.ApplicationDTO.*;
 import static com.example.loan.dto.ApplicationDTO.Request;
 import static com.example.loan.dto.ApplicationDTO.Response;
 
@@ -35,5 +37,10 @@ public class ApplicationController extends AbstractController {
         applicationService.delete(applicationId);
 
         return ok();
+    }
+
+    @PostMapping("/{applicationId}/terms")
+    public ResponseDTO<Boolean> acceptTerms(@PathVariable Long applicationId, @RequestBody AcceptTerms request){
+        return ok(applicationService.acceptTerms(applicationId, request));
     }
 }
