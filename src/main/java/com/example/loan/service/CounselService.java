@@ -1,10 +1,12 @@
 package com.example.loan.service;
 
-import com.example.loan.dto.CounselDTO;
-import com.example.loan.dto.CounselDTO.Response;
+import static com.example.loan.dto.CounselDTO.*;
+
 
 public interface CounselService {
-    Response create(CounselDTO.Request request);
+    Response create(Request request);
 
     Response get(Long counselId);
+
+    Response update(Long counselId, Request request);
 }
