@@ -12,8 +12,6 @@ public class CounselDTO {
     @Getter
     public static class Request {
 
-        private Long counselId;
-
         private String name;
 
         private String cellPhone;
@@ -27,12 +25,6 @@ public class CounselDTO {
         private String addressDetail;
 
         private String zipCode;
-
-        private LocalDateTime appliedAt;
-
-        private LocalDateTime createAt;
-
-        private LocalDateTime updateAt;
     }
 
     @NoArgsConstructor
