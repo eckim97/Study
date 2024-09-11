@@ -2,6 +2,7 @@ package com.example.loan.service;
 
 import com.example.loan.exception.BaseException;
 import com.example.loan.exception.ResultType;
+import com.example.loan.repository.ApplicationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -21,13 +22,22 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class FileStorageServiceImpl implements FileStorageService {
 
+    private final ApplicationRepository applicationRepository;
     @Value("${spring.servlet.multipart.location}")
     private String uploadPath;
 
     @Override
-    public void save(MultipartFile file) {
+    public void save(Long applicationId, MultipartFile file) {
+        if (!isPresentApplication(applicationId)) {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        }
         try {
-            Files.copy(file.getInputStream(), Paths.get(uploadPath).resolve(file.getOriginalFilename()),
+            String applicationPath = uploadPath.concat("/" + applicationId);
+            Path directoryPath = Path.of(applicationPath);
+            if (!Files.exists(directoryPath)) {
+                Files.createDirectory(directoryPath);
+            }
+            Files.copy(file.getInputStream(), Paths.get(applicationPath).resolve(file.getOriginalFilename()),
                     StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
@@ -35,10 +45,14 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public Resource load(String fileName) {
-
+    public Resource load(Long applicationId, String fileName) {
+        if (!isPresentApplication(applicationId)) {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        }
         try {
-            Path file = Paths.get(uploadPath).resolve(fileName);
+            String applicationPath = uploadPath.concat("/" + applicationId);
+
+            Path file = Paths.get(applicationPath).resolve(fileName);
 
             Resource resouce = new UrlResource(file.toUri());
 
@@ -53,16 +67,28 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public Stream<Path> loadAll() {
+    public void deleteAll(Long applicationId) {
+        if (!isPresentApplication(applicationId)) {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        }
+        String applicationPath = uploadPath.concat("/" + applicationId);
+        FileSystemUtils.deleteRecursively(Paths.get(applicationPath).toFile());
+    }
+
+    @Override
+    public Stream<Path> loadAll(Long applicationId) {
+        if (!isPresentApplication(applicationId)) {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        }
         try {
-            return Files.walk(Paths.get(uploadPath), 1).filter(path -> !path.equals(Paths.get(uploadPath)));
+            String applicationPath = uploadPath.concat("/" + applicationId);
+            return Files.walk(Paths.get(applicationPath), 1).filter(path -> !path.equals(Paths.get(applicationPath)));
         } catch (Exception e) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         }
     }
 
-    @Override
-    public void deleteAll() {
-        FileSystemUtils.deleteRecursively(Paths.get(uploadPath).toFile());
+    private boolean isPresentApplication(Long applicationId) {
+        return applicationRepository.findById(applicationId).isPresent();
     }
 }
