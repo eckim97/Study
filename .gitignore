@@ -286,6 +286,8 @@ gradle-app.setting
 
 # Gradle specific files
 .gradle/
+**/build/
 
 # IntelliJ IDEA specific
 .idea/
+.idea/compiler.xml
