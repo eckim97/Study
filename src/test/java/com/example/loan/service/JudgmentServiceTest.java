@@ -18,6 +18,7 @@ import java.util.Optional;
 
 import static com.example.loan.dto.JudgmentDTO.Request;
 import static com.example.loan.dto.JudgmentDTO.Response;
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -93,5 +94,29 @@ public class JudgmentServiceTest {
         Response actual = judgmentService.getJudgmentOfApplication(1L);
 
         assertThat(actual.getJudgmentId()).isSameAs(1L);
+    }
+
+    @Test
+    void Should_ReturnUpdatedResponseOfExistJudgmentEntity_When_RequestUpdateExistJudgmentInfo() {
+
+        Judgment entity = Judgment.builder()
+                .judgmentId(1L)
+                .name("Member Kim")
+                .approvalAmount(BigDecimal.valueOf(5000000))
+                .build();
+
+        Request request = Request.builder()
+                .name("Member Lee")
+                .approvalAmount(BigDecimal.valueOf(10000000))
+                .build();
+
+        when(judgmentRepository.findById(1L)).thenReturn(Optional.ofNullable(entity));
+        when(judgmentRepository.save(ArgumentMatchers.any(Judgment.class))).thenReturn(entity);
+
+        Response actual = judgmentService.update(1L, request);
+
+        assertThat(actual.getJudgmentId()).isSameAs(1L);
+        assertThat(actual.getName()).isSameAs(request.getName());
+        assertThat(actual.getApprovalAmount()).isSameAs(request.getApprovalAmount());
     }
 }
