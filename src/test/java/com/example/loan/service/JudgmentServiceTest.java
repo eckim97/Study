@@ -2,6 +2,7 @@ package com.example.loan.service;
 
 import com.example.loan.domain.Application;
 import com.example.loan.domain.Judgment;
+import com.example.loan.dto.ApplicationDTO;
 import com.example.loan.repository.ApplicationRepository;
 import com.example.loan.repository.JudgmentRepository;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import org.modelmapper.ModelMapper;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import static com.example.loan.dto.ApplicationDTO.*;
 import static com.example.loan.dto.JudgmentDTO.Request;
 import static com.example.loan.dto.JudgmentDTO.Response;
 import static org.assertj.core.api.Assertions.as;
@@ -133,6 +135,29 @@ public class JudgmentServiceTest {
         judgmentService.delete(1L);
 
         assertThat(entity.getIsDeleted()).isTrue();
+    }
 
+    @Test
+    void Should_ReturnUpdateResponseOfExistJudgmentEntity_When_RequestGrantApprovalAmountExistJudgmentInfo() {
+
+        Judgment judgmentEntity = Judgment.builder()
+                .name("Member Kim")
+                .applicationId(1L)
+                .approvalAmount(BigDecimal.valueOf(5000000))
+                .build();
+
+        Application applicationEntity = Application.builder()
+                .applicationId(1L)
+                .approvalAmount(BigDecimal.valueOf(5000000))
+                .build();
+
+        when(judgmentRepository.findById(1L)).thenReturn(Optional.ofNullable(judgmentEntity));
+        when(applicationRepository.findById(1L)).thenReturn(Optional.ofNullable(applicationEntity));
+        when(applicationRepository.save(ArgumentMatchers.any(Application.class))).thenReturn(applicationEntity);
+
+        GrantAmount actual = judgmentService.grant(1L);
+
+        assertThat(actual.getApplicationId()).isSameAs(1L);
+        assertThat(actual.getApprovalAmount()).isSameAs(applicationEntity.getApprovalAmount());
     }
 }
