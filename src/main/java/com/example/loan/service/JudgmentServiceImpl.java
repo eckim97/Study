@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.Struct;
+
 import static com.example.loan.dto.JudgmentDTO.Request;
 import static com.example.loan.dto.JudgmentDTO.Response;
 
@@ -74,6 +76,18 @@ public class JudgmentServiceImpl implements JudgmentService {
 
         return modelMapper.map(judgment, Response.class);
     }
+
+    @Override
+    public void delete(Long judgmentId) {
+        Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        judgment.setIsDeleted(true);
+
+        judgmentRepository.save(judgment);
+    }
+
 
     private boolean isPresentApplication(Long applicationId) {
         return applicationRepository.findById(applicationId).isPresent();
