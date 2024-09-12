@@ -1,6 +1,8 @@
 package com.example.loan.service;
 
+import com.example.loan.domain.Application;
 import com.example.loan.domain.Judgment;
+import com.example.loan.dto.ApplicationDTO;
 import com.example.loan.exception.BaseException;
 import com.example.loan.exception.ResultType;
 import com.example.loan.repository.ApplicationRepository;
@@ -9,8 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.sql.Struct;
 
+import static com.example.loan.dto.ApplicationDTO.*;
 import static com.example.loan.dto.JudgmentDTO.Request;
 import static com.example.loan.dto.JudgmentDTO.Response;
 
@@ -86,6 +90,25 @@ public class JudgmentServiceImpl implements JudgmentService {
         judgment.setIsDeleted(true);
 
         judgmentRepository.save(judgment);
+    }
+
+    @Override
+    public GrantAmount grant(Long judgmentId) {
+        Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        Long applicationId = judgment.getApplicationId();
+        Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        BigDecimal approvalAmount = judgment.getApprovalAmount();
+        application.setApprovalAmount(approvalAmount);
+
+        applicationRepository.save(application);
+
+        return modelMapper.map(application, GrantAmount.class);
     }
 
 
