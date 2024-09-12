@@ -16,6 +16,7 @@ import static com.example.loan.dto.JudgmentDTO.Response;
 @RequiredArgsConstructor
 public class JudgmentServiceImpl implements JudgmentService {
 
+
     private final JudgmentRepository judgmentRepository;
 
     private final ModelMapper modelMapper;
@@ -60,7 +61,22 @@ public class JudgmentServiceImpl implements JudgmentService {
         return modelMapper.map(judgment, Response.class);
     }
 
+    @Override
+    public Response update(Long judgmentId, Request request) {
+        Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        judgment.setName(request.getName());
+        judgment.setApprovalAmount(request.getApprovalAmount());
+
+        judgmentRepository.save(judgment);
+
+        return modelMapper.map(judgment, Response.class);
+    }
+
     private boolean isPresentApplication(Long applicationId) {
         return applicationRepository.findById(applicationId).isPresent();
     }
+
 }
