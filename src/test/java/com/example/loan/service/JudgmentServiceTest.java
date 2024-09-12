@@ -2,19 +2,22 @@ package com.example.loan.service;
 
 import com.example.loan.domain.Application;
 import com.example.loan.domain.Judgment;
-import com.example.loan.dto.JudgmentDTO;
 import com.example.loan.repository.ApplicationRepository;
 import com.example.loan.repository.JudgmentRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
+import org.mockito.ArgumentMatchers;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static com.example.loan.dto.JudgmentDTO.*;
+import static com.example.loan.dto.JudgmentDTO.Request;
+import static com.example.loan.dto.JudgmentDTO.Response;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -34,7 +37,7 @@ public class JudgmentServiceTest {
     private ModelMapper modelMapper;
 
     @Test
-    void Should_ReturnResponseOfNewJudgmentEntity_WHen_RequestNewJudgment(){
+    void Should_ReturnResponseOfNewJudgmentEntity_WHen_RequestNewJudgment() {
         Judgment judgment = Judgment.builder()
                 .applicationId(1L)
                 .name("Member Kim")
@@ -57,5 +60,38 @@ public class JudgmentServiceTest {
         assertThat(actual.getName()).isSameAs(judgment.getName());
         assertThat(actual.getApplicationId()).isSameAs(judgment.getApplicationId());
         assertThat(actual.getApprovalAmount()).isSameAs(judgment.getApprovalAmount());
+    }
+
+
+    @Test
+    void Should_ReturnResponseOfExistJudgmentEntity_When_RequestExistJudgmentId() {
+
+        Judgment entity = Judgment.builder()
+                .judgmentId(1L)
+                .build();
+        when(judgmentRepository.findById(1L)).thenReturn(Optional.ofNullable(entity));
+
+        Response actual = judgmentService.get(1L);
+
+        assertThat(actual.getJudgmentId()).isSameAs(1L);
+    }
+
+    @Test
+    void Should_ReturnResponseOfExistJudgmentEntity_When_RequestExistApplicationId() {
+
+        Judgment judgmentEntity = Judgment.builder()
+                .judgmentId(1L)
+                .build();
+
+        Application applicationEntity = Application.builder()
+                .applicationId(1L)
+                .build();
+
+        when(applicationRepository.findById(1L)).thenReturn(Optional.ofNullable(applicationEntity));
+        when(judgmentRepository.findAllByApplicationId(1L)).thenReturn(Optional.ofNullable(judgmentEntity));
+
+        Response actual = judgmentService.getJudgmentOfApplication(1L);
+
+        assertThat(actual.getJudgmentId()).isSameAs(1L);
     }
 }
