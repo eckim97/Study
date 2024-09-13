@@ -1,11 +1,13 @@
 package com.example.loan.controller;
 
 
+import com.example.loan.dto.EntryDTO;
 import com.example.loan.dto.ResponseDTO;
 import com.example.loan.service.EntryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.loan.dto.EntryDTO.*;
 import static com.example.loan.dto.EntryDTO.Request;
 import static com.example.loan.dto.EntryDTO.Response;
 
@@ -23,5 +25,10 @@ public class InternalController extends AbstractController{
     @GetMapping("{applicationId}/entries")
     public ResponseDTO<Response> get(@PathVariable Long applicationId) {
         return ok(entryService.get(applicationId));
+    }
+
+    @PutMapping("/entries/{entryId}")
+    public ResponseDTO<UpdateResponse> update(@PathVariable Long entryId, @RequestBody Request request) {
+        return ok(entryService.update(entryId, request));
     }
 }
