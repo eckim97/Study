@@ -11,6 +11,7 @@ import com.example.loan.repository.EntryRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -32,10 +33,10 @@ public class EntryServiceImpl implements EntryService {
 
     private final ModelMapper modelMapper;
 
+    @Transactional
     @Override
     public Response create(Long applicationId, Request request) {
-        // 계약 체결 여부 검증
-        if (isContractedApplication(applicationId)) {
+        if (!isContractedApplication(applicationId)) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         }
 
@@ -44,11 +45,11 @@ public class EntryServiceImpl implements EntryService {
 
         entryRepository.save(entry);
 
-        // 대출 잔고 관리
-        balanceService.create(applicationId
-                , BalanceDTO.Request.builder()
+        balanceService.create(applicationId,
+                BalanceDTO.CreateRequest.builder()
                         .entryAmount(request.getEntryAmount())
-                        .build());
+                        .build()
+        );
 
         return modelMapper.map(entry, Response.class);
     }
@@ -64,31 +65,30 @@ public class EntryServiceImpl implements EntryService {
         }
     }
 
+    @Transactional
     @Override
     public UpdateResponse update(Long entryId, Request request) {
-        // entry
         Entry entry = entryRepository.findById(entryId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
 
-        // before -> after
         BigDecimal beforeEntryAmount = entry.getEntryAmount();
         entry.setEntryAmount(request.getEntryAmount());
 
         entryRepository.save(entry);
 
-        // balance update
         Long applicationId = entry.getApplicationId();
-        balanceService.update(applicationId, UpdateRequest.builder()
-                .beforeEntryAmount(beforeEntryAmount)
-                .afterEntryAmount(request.getEntryAmount())
-                .build());
-        // response
+        balanceService.update(applicationId,
+                BalanceDTO.UpdateRequest.builder()
+                        .beforeEntryAmount(beforeEntryAmount)
+                        .afterEntryAmount(request.getEntryAmount())
+                        .build()
+        );
+
         return UpdateResponse.builder()
-                .entryId(entryId)
-                .applicationId(applicationId)
+                .applicationId(entry.getApplicationId())
                 .beforeEntryAmount(beforeEntryAmount)
-                .afterEntryAmount(request.getEntryAmount())
+                .afterEntryAmount(entry.getEntryAmount())
                 .build();
     }
 
@@ -115,9 +115,10 @@ public class EntryServiceImpl implements EntryService {
 
     private boolean isContractedApplication(Long applicationId) {
         Optional<Application> existed = applicationRepository.findById(applicationId);
-        if (existed.isPresent()) {
+        if (existed.isEmpty()) {
             return false;
         }
+
         return existed.get().getContractedAt() != null;
     }
 }
