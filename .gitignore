@@ -292,3 +292,5 @@ gradle.xml
 # IntelliJ IDEA specific
 .idea/
 .idea/compiler.xml
+
+.gradle/
