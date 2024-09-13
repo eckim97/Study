@@ -138,8 +138,8 @@ public class ApplicationServiceImpl implements ApplicationService{
 
         // 계약 체결
         application.setContractedAt(LocalDateTime.now());
-        applicationRepository.save(application);
+        Application updated = applicationRepository.save(application);
 
-        return null;
+        return modelMapper.map(updated, Response.class);
     }
 }

@@ -69,7 +69,7 @@ public class ApplicationController extends AbstractController {
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @GetMapping("/{applicationId}/files/infos")
+    @GetMapping("/{applicationId}/files/info")
     public ResponseDTO<List<FileDTO>> getFileInfos(@PathVariable Long applicationId) {
         List<FileDTO> fileInfos = fileStorageService.loadAll(applicationId).map(path -> {
             String fileName = path.getFileName().toString();
