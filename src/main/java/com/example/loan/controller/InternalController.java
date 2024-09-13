@@ -14,7 +14,7 @@ import static com.example.loan.dto.EntryDTO.Response;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/internal/applications")
-public class InternalController extends AbstractController{
+public class InternalController extends AbstractController {
     private final EntryService entryService;
 
     @PostMapping("{applicationId}/entries")
@@ -30,5 +30,11 @@ public class InternalController extends AbstractController{
     @PutMapping("/entries/{entryId}")
     public ResponseDTO<UpdateResponse> update(@PathVariable Long entryId, @RequestBody Request request) {
         return ok(entryService.update(entryId, request));
+    }
+
+    @DeleteMapping("/entries/{entryId}")
+    public ResponseDTO<Void> delete(@PathVariable Long entryId) {
+        entryService.delete(entryId);
+        return ok();
     }
 }
