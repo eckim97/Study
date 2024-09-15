@@ -1,10 +1,9 @@
 package com.example.pricecompareredis.controller;
 
 import com.example.pricecompareredis.service.LowestPriceService;
+import com.example.pricecompareredis.vo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -15,8 +14,13 @@ public class LowestPriceController {
     @Autowired
     private LowestPriceService mlps;
 
-    @GetMapping("/getZSETValue")
+    @GetMapping("/product")
     public Set GetZsetValue(String key) {
         return mlps.getZsetValue(key);
+    }
+
+    @PutMapping("/product")
+    public int SetNewProduct(@RequestBody Product newProduct) {
+        return mlps.setNewProduct(newProduct);
     }
 }
