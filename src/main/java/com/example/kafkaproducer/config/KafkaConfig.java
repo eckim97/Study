@@ -27,7 +27,7 @@ public class KafkaConfig {
     public KafkaStreamsConfiguration myKStreamConfig() {
         Map<String, Object> myKStreamConfig = new HashMap<>();
         myKStreamConfig.put(StreamsConfig.APPLICATION_ID_CONFIG, "stream-test");
-        myKStreamConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "13.124.237.39:9092,3.38.181.75:9092,13.125.235.147:9092");
+        myKStreamConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "13.124.237.39:9092,3.38.181.75:9092,3.35.156.112:9092");
         myKStreamConfig.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         myKStreamConfig.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         myKStreamConfig.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, 3);
