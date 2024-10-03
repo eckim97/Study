@@ -26,6 +26,10 @@ dependencies {
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	// Hibernate Validator 추가 (Bean Validation)
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+
 	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
