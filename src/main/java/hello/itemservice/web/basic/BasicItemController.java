@@ -32,6 +32,10 @@ public class BasicItemController {
         return "basic/item";
     }
 
+    @GetMapping("/add")
+    public String addForm() {
+        return "basic/addForm";
+    }
     /**
      * 테스트 데이터
      */
