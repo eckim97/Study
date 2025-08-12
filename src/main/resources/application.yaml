@@ -1,0 +1,48 @@
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  datasource:
+    hikari:
+      maximum-pool-size: 4
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+
+  redis:
+    url: ${REDIS_URL}
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: notification
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        enable.idempotence: false
+    listener:
+      ack-mode: MANUAL
+    topic:
+      alarm: alarm
+
+jwt:
+  secret-key: sns-service-application-2024.secret_key
+  token.expired-time-ms: 2592000000  # 30 days
+
+server:
+  port: 8081
