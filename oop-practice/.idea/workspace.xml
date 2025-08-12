@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71da6ea5-0903-4288-931c-2d194bad0fbb" name="Changes" comment="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;GradeCalculator가 아니라 Course에서 계산로직을 처리함으로써 응집도를 높였다.&#10;&#10;즉, Getter를 이용하는 방법이 아니라, 메시지를 전달해서 해당 객체에게 작업을 위임하는 형태로 변경했다.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Courses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ArithmeticOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/calculate/ArithmeticOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GradeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GradeCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/password/PasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PasswordValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/password/PasswordValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/password/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/password/RandomPasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/password/RandomPasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/calculate/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/calculate/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/CorrectFixedPasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/password/CorrectFixedPasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/PasswordValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/password/PasswordValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/PositiveNumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/calculate/PositiveNumberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/calculate/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/WrongFixedPasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/password/WrongFixedPasswordGenerator.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "eckim97"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/eckim97/oop-practice.git",
+    "accountId": "47e4c0d9-0d9c-4265-be80-a0ebc9300149"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2jeNyZrUN2QnxCuQMocJTLf47Dt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.CalculatorTest.additionTest.executor": "Run",
+    "JUnit.CalculatorTest.calculateExceptionTest.executor": "Run",
+    "JUnit.CalculatorTest.calculateTest.executor": "Run",
+    "JUnit.CalculatorTest.executor": "Run",
+    "JUnit.CalculatorTest.subtractionTest.executor": "Run",
+    "JUnit.CourseTest.createTest.executor": "Run",
+    "JUnit.GradeCalculatorTest.calculateGradeTest.executor": "Run",
+    "JUnit.GradeCalculatorTest.executor": "Run",
+    "JUnit.PasswordValidatorTest.executor": "Run",
+    "JUnit.PasswordValidatorTest.validatePasswordTest.executor": "Run",
+    "JUnit.PasswordValidatorTest.validatePasswordTest2 (1).executor": "Run",
+    "JUnit.PasswordValidatorTest.validatePasswordTest2.executor": "Run",
+    "JUnit.PositiveNumberTest.createTest (1).executor": "Run",
+    "JUnit.PositiveNumberTest.createTest.executor": "Run",
+    "JUnit.UserTest.executor": "Run",
+    "JUnit.UserTest.passwordTest.executor": "Run",
+    "JUnit.UserTest.passwordTest2.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/eunchan/Documents/study/oop-practice/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.GradeCalculatorTest">
+    <configuration name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop-practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.calculate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.calculate" />
+      <option name="MAIN_CLASS_NAME" value="org.example.calculate.CalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorTest.calculateExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop-practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.calculate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.calculate" />
+      <option name="MAIN_CLASS_NAME" value="org.example.calculate.CalculatorTest" />
+      <option name="METHOD_NAME" value="calculateExceptionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop-practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.password.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.CourseTest" />
+      <option name="METHOD_NAME" value="createTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GradeCalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop-practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.password.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.GradeCalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GradeCalculatorTest.calculateGradeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop-practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.password.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.GradeCalculatorTest" />
+      <option name="METHOD_NAME" value="calculateGradeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GradeCalculatorTest" />
+        <item itemvalue="JUnit.GradeCalculatorTest.calculateGradeTest" />
+        <item itemvalue="JUnit.CourseTest.createTest" />
+        <item itemvalue="JUnit.CalculatorTest" />
+        <item itemvalue="JUnit.CalculatorTest.calculateExceptionTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71da6ea5-0903-4288-931c-2d194bad0fbb" name="Changes" comment="" />
+      <created>1721743840119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721743840119</updated>
+      <workItem from="1721743841159" duration="24508000" />
+    </task>
+    <task id="LOCAL-00001" summary="테스트 코드 실습&#10;&#10;[테스트 코드를 작성하는 이유]&#10;&#10;- 잘 작성된 테스트 코드는 문서화 역할을 할 수 있다.&#10;&#10;- TDD가 아니더라도 코드 결함을 발견할 수 있다.&#10;&#10;- 리팩토링 할 때 심리적 안정성을 확보할 수 있다.&#10;&#10;- 테스트 하기 쉬운 코드를 작성하다 보면 더 낮은 결합도를 가진 설계를 얻을 수 있다.&#10;&#10;[실습] &#10;- 랜덤 패스워드를 생성하여 자리수에 맞지 않으면 테스트가 실패하고 맞으면 통과하도록 설계를 한다.&#10;&#10;- 하지만 구현체에 의존하다 보니 강한 결합이 생겼다.&#10;&#10;- 객체지향스러운 설계를 위해 인터페이스를 만들고 의존성 주입을 통해 결합도를 낮췄다.">
+      <option name="closed" value="true" />
+      <created>1721823737505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721823737505</updated>
+    </task>
+    <task id="LOCAL-00002" summary="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;요구사항&#10;&#10;- 간단한 사칙연산을 할 수 있다.&#10;&#10;- 양수로만 계산할 수 있다.&#10;&#10;- 나눗셈에서 0을 나누는 경우 IllegalArgument 예외를 발생시킨다.&#10;&#10;- MVC패턴(Model-View-Controller) 기반으로 구현한다.&#10;&#10;Calculator안에서 계산을 하던 구조에서 ArithmeticOperator에게 작업을 위임함으로써 객체지향스러운 코드로 리팩토링 했다. &#10;&#10;객체들끼리 메시지를 주고 받으며 협력을 해서 결과값을 return 해주는 구조이다.">
+      <option name="closed" value="true" />
+      <created>1721832792395</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721832792395</updated>
+    </task>
+    <task id="LOCAL-00003" summary="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;NewArithmeticOperator를 구현하는 네 개의 연산자 클래스를 추가했다. &#10;&#10;Calculator의 연산자 클래스들이 리스트에 저장되고, 이를 스트림으로 처리하여 연산을 수행한다. &#10;&#10;[리팩토링으로 얻은 이점]&#10;&#10;명확성&#10;&#10;NewArithmeticOperator 인터페이스와 연산자 클래스들이 연산 로직을 분리하여 코드의 가독성과 유지보수성을 높인다.&#10;&#10;확장성&#10;&#10;새로운 연산자를 추가할 때, NewArithmeticOperator 인터페이스를 구현하는 클래스만 추가하면 되어 확장이 용이하다.&#10;&#10;유연성&#10;&#10;Calculator 클래스는 스트림과 Optional을 사용해 연산자 선택과 예외 처리가 유연하고 안전하다.&#10;코드 중복 감소&#10;&#10;각 연산자 클래스에서 supports와 calculate 메서드를 구현하여 중복 코드를 줄이고 역할을 명확히 분리한다.">
+      <option name="closed" value="true" />
+      <created>1721834605331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721834605331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;PositiveNumber 클래스를 생성하여 양수만을 검증한다. 이 클래스로 인해 CalculatorTest와 DivisionOperator에서 0을 검증하던 로직은 삭제되었다.&#10;&#10;이번 리팩토링으로 인해 코드의 유연한 확장성을 증가시켰다.">
+      <option name="closed" value="true" />
+      <created>1721836612514</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721836612514</updated>
+    </task>
+    <task id="LOCAL-00005" summary="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;이수한 과목을 나타내는 Course 클래스를 생성 후 평균 학점 계산기에 코드를 작성 하고 테스트 코드를 작성하여 정상적으로 통과하는 것을 확인했다.">
+      <option name="closed" value="true" />
+      <created>1721843152852</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721843152852</updated>
+    </task>
+    <task id="LOCAL-00006" summary="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;GradeCalculator가 아니라 Course에서 계산로직을 처리함으로써 응집도를 높였다.&#10;&#10;즉, Getter를 이용하는 방법이 아니라, 메시지를 전달해서 해당 객체에게 작업을 위임하는 형태로 변경했다.">
+      <option name="closed" value="true" />
+      <created>1721915880378</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721915880378</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="테스트 코드 실습&#10;&#10;[테스트 코드를 작성하는 이유]&#10;&#10;- 잘 작성된 테스트 코드는 문서화 역할을 할 수 있다.&#10;&#10;- TDD가 아니더라도 코드 결함을 발견할 수 있다.&#10;&#10;- 리팩토링 할 때 심리적 안정성을 확보할 수 있다.&#10;&#10;- 테스트 하기 쉬운 코드를 작성하다 보면 더 낮은 결합도를 가진 설계를 얻을 수 있다.&#10;&#10;[실습] &#10;- 랜덤 패스워드를 생성하여 자리수에 맞지 않으면 테스트가 실패하고 맞으면 통과하도록 설계를 한다.&#10;&#10;- 하지만 구현체에 의존하다 보니 강한 결합이 생겼다.&#10;&#10;- 객체지향스러운 설계를 위해 인터페이스를 만들고 의존성 주입을 통해 결합도를 낮췄다." />
+    <MESSAGE value="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;요구사항&#10;&#10;- 간단한 사칙연산을 할 수 있다.&#10;&#10;- 양수로만 계산할 수 있다.&#10;&#10;- 나눗셈에서 0을 나누는 경우 IllegalArgument 예외를 발생시킨다.&#10;&#10;- MVC패턴(Model-View-Controller) 기반으로 구현한다.&#10;&#10;Calculator안에서 계산을 하던 구조에서 ArithmeticOperator에게 작업을 위임함으로써 객체지향스러운 코드로 리팩토링 했다. &#10;&#10;객체들끼리 메시지를 주고 받으며 협력을 해서 결과값을 return 해주는 구조이다." />
+    <MESSAGE value="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;NewArithmeticOperator를 구현하는 네 개의 연산자 클래스를 추가했다. &#10;&#10;Calculator의 연산자 클래스들이 리스트에 저장되고, 이를 스트림으로 처리하여 연산을 수행한다. &#10;&#10;[리팩토링으로 얻은 이점]&#10;&#10;명확성&#10;&#10;NewArithmeticOperator 인터페이스와 연산자 클래스들이 연산 로직을 분리하여 코드의 가독성과 유지보수성을 높인다.&#10;&#10;확장성&#10;&#10;새로운 연산자를 추가할 때, NewArithmeticOperator 인터페이스를 구현하는 클래스만 추가하면 되어 확장이 용이하다.&#10;&#10;유연성&#10;&#10;Calculator 클래스는 스트림과 Optional을 사용해 연산자 선택과 예외 처리가 유연하고 안전하다.&#10;코드 중복 감소&#10;&#10;각 연산자 클래스에서 supports와 calculate 메서드를 구현하여 중복 코드를 줄이고 역할을 명확히 분리한다." />
+    <MESSAGE value="객체지향 프로그래밍 실습 - 사칙 연산 계산기&#10;&#10;PositiveNumber 클래스를 생성하여 양수만을 검증한다. 이 클래스로 인해 CalculatorTest와 DivisionOperator에서 0을 검증하던 로직은 삭제되었다.&#10;&#10;이번 리팩토링으로 인해 코드의 유연한 확장성을 증가시켰다." />
+    <MESSAGE value="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;이수한 과목을 나타내는 Course 클래스를 생성 후 평균 학점 계산기에 코드를 작성 하고 테스트 코드를 작성하여 정상적으로 통과하는 것을 확인했다." />
+    <MESSAGE value="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;GradeCalculator가 아니라 Course에서 계산로직을 처리함으로써 응집도를 높였다.&#10;&#10;즉, Getter를 이용하는 방법이 아니라, 메시지를 전달해서 해당 객체에게 작업을 위임하는 형태로 변경했다." />
+    <option name="LAST_COMMIT_MESSAGE" value="객체지향 프로그래밍 실습 - 학점계산기&#10;&#10;GradeCalculator가 아니라 Course에서 계산로직을 처리함으로써 응집도를 높였다.&#10;&#10;즉, Getter를 이용하는 방법이 아니라, 메시지를 전달해서 해당 객체에게 작업을 위임하는 형태로 변경했다." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
